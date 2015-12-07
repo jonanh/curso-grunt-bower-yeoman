@@ -126,8 +126,8 @@
         "grunt-connect-proxy.md",
         "grunt-connect-proxy2.md",
 
-        "grunt-concurrent",
-        "grunt-concurrent2",
+        "grunt-concurrent.md",
+        "grunt-concurrent2.d",
 
         "grunt-ngmin.md",
         "grunt-ngmin2.md"
