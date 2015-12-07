@@ -1,7 +1,8 @@
-# Generated on 2014-06-03 using generator-reveal 0.3.7
+# Generated on 2015-11-24 using generator-reveal 0.5.4
 module.exports = (grunt) ->
 
     grunt.initConfig
+        pkg: grunt.file.readJSON 'package.json'
 
         watch:
 
@@ -10,10 +11,10 @@ module.exports = (grunt) ->
                     livereload: true
                 files: [
                     'index.html'
-                    'slides/*.md'
-                    'slides/*.html'
+                    'slides/{,*/}*.{md,html}'
                     'js/*.js'
                     'css/*.css'
+                    'resources/**'
                 ]
 
             index:
@@ -22,7 +23,7 @@ module.exports = (grunt) ->
                     'templates/_section.html'
                     'slides/list.json'
                 ]
-                tasks: ['buildIndex']
+                tasks: ['markdown', 'buildIndex']
 
             coffeelint:
                 files: ['Gruntfile.coffee']
@@ -31,7 +32,7 @@ module.exports = (grunt) ->
             jshint:
                 files: ['js/*.js']
                 tasks: ['jshint']
-        
+
             sass:
                 files: ['css/source/theme.scss']
                 tasks: ['sass']
@@ -41,7 +42,7 @@ module.exports = (grunt) ->
             theme:
                 files:
                     'css/theme.css': 'css/source/theme.scss'
-        
+
         connect:
 
             livereload:
@@ -59,6 +60,8 @@ module.exports = (grunt) ->
             options:
                 indentation:
                     value: 4
+                max_line_length:
+                    level: 'ignore'
 
             all: ['Gruntfile.coffee']
 
@@ -70,17 +73,16 @@ module.exports = (grunt) ->
             all: ['js/*.js']
 
         copy:
-
             dist:
                 files: [{
                     expand: true
                     src: [
-                        'ejemplos/**'
                         'assets/**'
                         'slides/**'
                         'bower_components/**'
                         'js/**'
                         'css/*.css'
+                        'resources/**'
                     ]
                     dest: 'dist/'
                 },{
@@ -90,7 +92,23 @@ module.exports = (grunt) ->
                     filter: 'isFile'
                 }]
 
-        
+
+        markdown:
+            compile:
+                options:
+                    template: 'templates/_markdown.html'
+                files: [{
+                    expand: true,
+                    cwd: 'slides/',
+                    dest: 'slides',
+                    src: [
+                        '**/*.md',
+                        '!**/_*.md'
+                    ],
+                    ext: '.html'
+                }]
+
+
         buildcontrol:
 
             options:
@@ -100,9 +118,9 @@ module.exports = (grunt) ->
                 message: 'Built from %sourceCommit% on branch %sourceBranch%'
             pages:
                 options:
-                    remote: 'https://github.com/irontec/curso-grunt-bower-yeoman.git'
+                    remote: '<%= pkg.repository.url %>'
                     branch: 'gh-pages'
-        
+
 
 
     # Load all grunt tasks.
@@ -130,8 +148,9 @@ module.exports = (grunt) ->
             'jshint'
         ]
 
-    grunt.registerTask 'server',
+    grunt.registerTask 'serve',
         'Run presentation locally and start watch process (living document).', [
+            'markdown'
             'buildIndex'
             'sass'
             'connect:livereload'
@@ -142,20 +161,21 @@ module.exports = (grunt) ->
         'Save presentation files to *dist* directory.', [
             'test'
             'sass'
+            'markdown'
             'buildIndex'
             'copy'
         ]
 
-    
+
     grunt.registerTask 'deploy',
         'Deploy to Github Pages', [
             'dist'
             'buildcontrol'
         ]
-    
+
 
     # Define default task.
     grunt.registerTask 'default', [
         'test'
-        'server'
+        'serve'
     ]
