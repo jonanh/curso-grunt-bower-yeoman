@@ -1,0 +1,19 @@
+<pre><code class="lang-javascript">sass: {
+    options: {
+        sourceMap: true,
+        loadPath: [
+            &#39;bower_components&#39;
+        ]
+    },
+    server: {
+        files: [{
+            expand: true,
+            cwd: &#39;&lt;%= config.app %&gt;/styles&#39;,
+            src: [&#39;*.scss&#39;],
+            dest: &#39;.tmp/styles&#39;,
+            ext: &#39;.css&#39;
+        }]
+    }
+},
+</code></pre>
+

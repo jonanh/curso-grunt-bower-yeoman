@@ -1,0 +1,17 @@
+<p>Gruntfile.js</p>
+<pre><code class="lang-javascript">bowerInstall: {
+    app: {
+        src: [
+            // html support
+            &#39;&lt;%= config.app %&gt;/index.html&#39;
+            &#39;&lt;%= config.app %&gt;/**/*.html&#39;,
+            // jade support
+            &#39;&lt;%= config.app %&gt;/views/**/*.jade&#39;,
+            // .scss &amp; .sass support
+            &#39;&lt;%= config.app %&gt;/styles/main.scss&#39;,
+        ],
+        exclude: [&#39;bower_components/bootstrap/dist/js/bootstrap.js&#39;]
+    }
+},
+</code></pre>
+

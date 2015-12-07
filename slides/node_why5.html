@@ -1,0 +1,18 @@
+<ul>
+<li><p>why isn’t everyone using event loops, callbacks, and non-blocking I/O?</p>
+</li>
+<li><p>For reasons both cultural and infrastructural.</p>
+</li>
+</ul>
+<p>We are taught to:</p>
+<pre><code class="lang-javascript">puts(&quot;Enter your name: &quot;);
+var name = gets();
+puts(&quot;Name: &quot; + name);
+</code></pre>
+<p>instead of:</p>
+<pre><code class="lang-javascript">puts(&quot;Enter your name: &quot;);
+gets(function (name) {
+  puts(&quot;Name: &quot; + name);
+});
+</code></pre>
+

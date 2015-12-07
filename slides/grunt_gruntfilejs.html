@@ -1,0 +1,29 @@
+<h2 id="gruntfile-js">Gruntfile.js</h2>
+<pre><code class="lang-javascript">&#39;use strict&#39;;
+// wrapper function
+module.exports = function (grunt) {
+</code></pre>
+<pre><code class="lang-javascript">  // Load grunt tasks automatically
+  require(&#39;load-grunt-tasks&#39;)(grunt);
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Define the configuration for all the tasks
+  grunt.initConfig({
+  });
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Load manually a plugin.
+  grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;);
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Define custom tasks and aliases
+  grunt.registerTask(&#39;wait&#39;, function () {});
+
+  grunt.registerTask(&#39;default&#39;, [
+    &#39;newer:jshint&#39;,
+    &#39;build&#39;
+  ]);
+};
+</code></pre>
+<!-- .element: class="fragment" -->
+

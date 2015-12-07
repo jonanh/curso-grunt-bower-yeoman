@@ -1,0 +1,20 @@
+<p>Example: wait untill the server is up</p>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;wait&#39;, function () {
+    var interval, socket, done = this.async();
+    grunt.log.ok(&#39;Waiting for server reload...&#39;);
+
+    socket = new require(&#39;net&#39;).Socket();
+    socket.on(&#39;error&#39;, function () {});
+    socket.connect(grunt.config.data.yeoman.port, function () {
+        socket.destroy();
+        clearInterval(interval);
+        grunt.log.writeln(&#39;Done waiting!&#39;);
+        done();
+    });
+
+    interval = setInterval(function () {
+        socket.connect(grunt.config.data.yeoman.port);
+    }, 100);
+});
+</code></pre>
+

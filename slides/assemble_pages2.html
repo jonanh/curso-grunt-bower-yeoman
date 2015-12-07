@@ -1,0 +1,11 @@
+<h4 id="pages-collection">Pages collection</h4>
+<p>Pages are automatically available through the pages object.</p>
+<pre><code class="lang-html">&lt;ul&gt;
+  {{#each pages}}
+  &lt;li{{#if this.isCurrentPage}} class=&quot;active&quot;{{/if}}&gt;
+     &lt;a href=&quot;{{relative dest this.dest}}&quot;&gt;{{ data.title }}&lt;/a&gt;
+  &lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
+</code></pre>
+

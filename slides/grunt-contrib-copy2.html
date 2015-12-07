@@ -1,0 +1,19 @@
+<pre><code class="lang-javascript">copy: {
+  dist: {
+    files: [{
+      expand: true,
+      dot: true,
+      cwd: &#39;&lt;%= yeoman.app %&gt;&#39;,
+      dest: &#39;&lt;%= yeoman.dist %&gt;/public&#39;,
+      src: [
+        &#39;*.{ico,png,txt}&#39;,
+        &#39;.htaccess&#39;,
+        &#39;bower_components/**/*&#39;,
+        &#39;images/{,*/}*.{webp}&#39;,
+        &#39;fonts/**/*&#39;
+      ]
+    }]
+  },
+},
+</code></pre>
+

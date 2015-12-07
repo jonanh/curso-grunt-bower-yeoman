@@ -1,0 +1,16 @@
+<p>Gruntfile.js</p>
+<pre><code class="lang-bash">    concurrent: {
+      server: [
+        &#39;compass:server&#39;,
+        &#39;jade:compile&#39;,
+        &#39;copy:styles&#39;
+      ],
+      dist: [
+        &#39;compass:dist&#39;,
+        &#39;imagemin&#39;,
+        &#39;svgmin&#39;,
+        &#39;htmlmin&#39;
+      ]
+    },
+</code></pre>
+

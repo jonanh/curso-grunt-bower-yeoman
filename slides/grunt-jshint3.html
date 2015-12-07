@@ -1,0 +1,17 @@
+<p>Gruntfile.js</p>
+<pre><code class="lang-javascript">  // Make sure code styles are up to par and there are no obvious mistakes
+  jshint: {
+    options: {
+      jshintrc: &#39;.jshintrc&#39;,
+      reporter: require(&#39;jshint-stylish&#39;)
+    },
+    // Check the node backend files
+    server: {
+      options: {
+        jshintrc: &#39;lib/.jshintrc&#39;
+      },
+      src: [ &#39;lib/{,*/}*.js&#39;]
+    },
+  },
+</code></pre>
+

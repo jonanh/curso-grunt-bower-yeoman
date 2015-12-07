@@ -1,0 +1,17 @@
+<h4 id="globbing-patterns">Globbing patterns</h4>
+<ul>
+<li><code>*</code> matches any number of characters, but not /</li>
+<li><code>?</code> matches a single character, but not /</li>
+<li><code>**</code> matches any number of characters, including /, as long as it&#39;s the only thing in a path part</li>
+<li><code>{}</code> allows for a comma-separated list of &quot;or&quot; expressions</li>
+<li><code>!</code> at the beginning of a pattern will negate the match</li>
+</ul>
+<p><br></p>
+<h4 id="tricky-examples">Tricky examples</h4>
+<pre><code class="lang-javascript">// Here, bar.js is first, followed by the remaining files, in alpha order:
+{src: [&#39;foo/bar.js&#39;, &#39;foo/*.js&#39;], dest: ...}
+
+// All files except for bar.js, in alpha order:
+{src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;], dest: ...}
+</code></pre>
+

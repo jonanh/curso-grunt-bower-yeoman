@@ -1,0 +1,18 @@
+<pre><code>// Object.defineProperties
+var a = {
+  &quot;a&quot;: { value: &quot;hello&quot; },
+  &quot;b&quot;: { value: true },
+  &quot;c&quot;: {
+    get: function() { return true },
+    set: function(value) { console.log(&quot;Setting `b` to&quot;, value) }
+  }
+};
+
+var b = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+var object = Object.create(b, a);
+</code></pre>

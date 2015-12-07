@@ -1,0 +1,17 @@
+<p>Gruntfile.js</p>
+<pre><code class="lang-javascript">    watch: {
+        sass: {
+            files: [&#39;&lt;%= config.app %&gt;/styles/{,*/}*.{scss,sass}&#39;],
+            tasks: [&#39;sass:server&#39;, &#39;autoprefixer&#39;]
+        },
+
+        js: {
+            files: [&#39;&lt;%= yeoman.app %&gt;/scripts/{,*/}*.js&#39;],
+            tasks: [&#39;newer:jshint:all&#39;],
+            options: {
+                livereload: true
+            }
+        },
+    }
+</code></pre>
+

@@ -1,0 +1,27 @@
+<pre><code class="lang-javascript">connect: {
+    options: {
+        port: 9000,
+        open: true,
+        livereload: 35729,
+        // Change this to &#39;0.0.0.0&#39; to access the server from outside
+        hostname: &#39;localhost&#39;
+    },
+</code></pre>
+<pre><code class="lang-javascript">    livereload: {
+        options: {
+            middleware: function(connect) {
+                return [
+                    // Add created files
+                    connect.static(&#39;.tmp&#39;),
+                    // Add files under /bower_components prefix
+                    connect().use(&#39;/bower_components&#39;, 
+                        connect.static(&#39;./bower_components&#39;)),
+                    // Add content under app/
+                    connect.static(config.app),
+                ];
+            }
+        }
+    },
+}
+</code></pre>
+

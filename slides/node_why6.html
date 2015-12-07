@@ -1,0 +1,15 @@
+<pre><code class="lang-javascript">db.query(&quot;select..&quot;, function (result) {
+    // callback
+});
+</code></pre>
+<ul>
+<li><p>Allows the program to return to the event loop immediately.</p>
+</li>
+<li><p>This is how I/O should be done. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>every I/O call must take a callback <!-- .element: class="fragment" --></p>
+</li>
+<li><p>JavaScript lacked an existing I/O API <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+

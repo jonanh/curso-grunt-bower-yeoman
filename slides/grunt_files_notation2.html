@@ -1,0 +1,14 @@
+<h4 id="building-the-files-object-dynamically">Building the files object dynamically</h4>
+<pre><code class="lang-javascript">files: [
+  {
+    expand: true,     // Enable dynamic expansion.
+    cwd: &#39;lib/&#39;,      // Src matches are relative to this path.
+    src: [&#39;**/*.js&#39;], // Actual pattern(s) to match.
+    dest: &#39;build/&#39;,   // Destination path prefix.
+    ext: &#39;.min.js&#39;,   // Dest filepaths will have this extension.
+    extDot: &#39;first&#39;,  // Extensions in filenames begin after the first dot
+    flatten: false    // Remove all path parts from generated dest paths.
+  },
+],
+</code></pre>
+

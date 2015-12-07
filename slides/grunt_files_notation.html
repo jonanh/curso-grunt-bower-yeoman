@@ -1,0 +1,24 @@
+<h4 id="files">Files</h4>
+<pre><code class="lang-javascript">// Compact Format
+concat: {
+  src: [&#39;src/bb.js&#39;, &#39;src/bbb.js&#39;],
+  dest: &#39;dest/b.js&#39;,
+},
+</code></pre>
+<pre><code class="lang-javascript">// Files Object Format
+concat: {
+  files: {
+    &#39;dest/a.js&#39;: [&#39;src/aa.js&#39;, &#39;src/aaa.js&#39;],
+    &#39;dest/a1.js&#39;: [&#39;src/aa1.js&#39;, &#39;src/aaa1.js&#39;],
+  },
+},
+</code></pre>
+<pre><code class="lang-javascript">// Files Array Format
+concat: {
+  files: [
+    {src: [&#39;src/aa.js&#39;, &#39;src/aaa.js&#39;], dest: &#39;dest/a.js&#39;},
+    {src: [&#39;src/aa1.js&#39;, &#39;src/aaa1.js&#39;], dest: &#39;dest/a1.js&#39;},
+  ],
+},
+</code></pre>
+

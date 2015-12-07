@@ -1,0 +1,14 @@
+<pre><code class="lang-javascript">// Allow the use of non-minsafe AngularJS files. Automatically makes it
+// minsafe compatible so Uglify does not destroy the ng references
+ngmin: {
+  dist: {
+    files: [{
+      expand: true,
+      cwd: &#39;.tmp/concat/scripts&#39;,
+      src: &#39;*.js&#39;,
+      dest: &#39;.tmp/concat/scripts&#39;
+    }]
+  }
+},
+</code></pre>
+

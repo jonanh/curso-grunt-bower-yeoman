@@ -1,0 +1,14 @@
+<h4 id="closures">Closures</h4>
+<p>Functions which take a small amount of metadata that describes the environment in which they were defined.</p>
+<pre><code class="lang-javascript">
+var counter = (function () {
+    var count = 0;
+    return function () {
+        console.log(count++);
+    }
+})();
+
+counter(); // 0
+counter(); // 1
+</code></pre>
+

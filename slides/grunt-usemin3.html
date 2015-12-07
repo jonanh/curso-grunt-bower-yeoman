@@ -1,0 +1,18 @@
+<h3 id="useminprepare">useminPrepare</h3>
+<p>app/index.html</p>
+<pre><code class="html">&lt;!-- build:js js/main.js --&gt;
+&lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/controllers/thing-controller.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/models/thing-model.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/views/thing-view.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;
+</code></pre>
+
+<p>Gruntfile.js</p>
+<pre><code>useminPrepare: {
+    options: {
+        dest: &#39;&lt;%= config.dist %&gt;&#39;
+    },
+    html: &#39;&lt;%= config.app %&gt;/index.html&#39;
+},
+</code></pre>

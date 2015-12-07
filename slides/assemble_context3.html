@@ -1,0 +1,21 @@
+<h2 id="-this-expression">&quot;this&quot; expression</h2>
+<p>This expression in any context to refer to the current context.</p>
+<p>src/data/people.json</p>
+<pre><code class="lang-json">[
+  &quot;Jon Schlinkert&quot;,
+  &quot;Brian Woodward&quot; 
+]
+</code></pre>
+<p>src/templates/pages/people.html</p>
+<pre><code class="lang-html">&lt;ul&gt; 
+  {{#each people }} 
+  &lt;li&gt; {{this }} &lt;/li &gt; 
+  {{/each }} 
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;ul&gt;
+  &lt;li&gt;Jon Schlinkert&lt;/li&gt;
+  &lt;li&gt;Brian Woodward&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+

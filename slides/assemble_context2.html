@@ -1,0 +1,17 @@
+<h2 id="root-context">Root context</h2>
+<ul>
+<li><p>Is where the data object starts</p>
+</li>
+<li><p>data.{json,yaml} gets loaded into the root of the context</p>
+</li>
+</ul>
+<p><br></p>
+<p>src/data/data.json</p>
+<pre><code class="lang-json">{
+  &quot;title &quot;: &quot;My Title&quot; 
+}
+</code></pre>
+<p>src/templates/pages/myTemplate.hbs</p>
+<pre><code class="lang-html">{{title }}
+</code></pre>
+

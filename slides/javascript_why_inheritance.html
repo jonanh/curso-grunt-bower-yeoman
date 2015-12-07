@@ -1,0 +1,19 @@
+<p><img src="assets/inheritance.png" alt=""></p>
+<pre><code class="lang-javascript">var object;
+object = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+object.__proto__ = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+object.__proto__.__proto__ === {}.__proto__;
+
+object.__proto__.__proto__.__proto__ === null;
+</code></pre>
+

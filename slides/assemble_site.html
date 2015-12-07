@@ -1,0 +1,17 @@
+<h4 id="site-global-data">Site global data</h4>
+<p>src/data/site.yaml</p>
+<pre><code class="lang-yaml">title: Generator_tests
+description: Irontec: Internet y Sistemas sobre GNU / LinuX
+ogimage: images/Irontec.png
+keywords: 
+    - irontec
+    - linux
+    - GNU/Linux
+</code></pre>
+<p>src/templates/layouts/default.hbs</p>
+<pre><code class="lang-html">&lt;title&gt;{{title}} | {{site.title}}&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;{{site.description}}&quot;&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;{{site.keywords}}&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;{{site.ogimage}}&quot;/&gt;
+</code></pre>
+

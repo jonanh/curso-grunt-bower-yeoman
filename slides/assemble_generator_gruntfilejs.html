@@ -1,0 +1,27 @@
+<p>Gruntfile.js</p>
+<pre><code class="lang-javascript">assemble: {
+    options: {
+        flatten: true,
+        assets: &#39;&lt;%= config.dist %&gt;/assets&#39;,
+        layout: &#39;default.hbs&#39;,
+        layoutdir: &#39;&lt;%= config.src %&gt;/templates/layouts/&#39;,
+        data: &#39;&lt;%= config.src %&gt;/data/*.{json,yml}&#39;,
+        partials: &#39;&lt;%= config.src %&gt;/templates/partials/*.hbs&#39;,
+        plugins: [&#39;assemble-contrib-permalinks&#39;],
+    },
+</code></pre>
+<pre><code class="lang-javascript">    // Targets
+    server: {
+        files: {
+            &#39;.tmp/&#39;: [&#39;&lt;%= config.src %&gt;/templates/pages/**/*.hbs&#39;]
+        }
+    },
+    dist: {
+        files: {
+            &#39;&lt;%= config.dist %&gt;/&#39;: [&#39;src/templates/pages/**/*.hbs&#39;]
+        }
+    }
+},
+</code></pre>
+<!-- .element: class="fragment" -->
+

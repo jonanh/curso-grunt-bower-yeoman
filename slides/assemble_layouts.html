@@ -1,0 +1,25 @@
+<h1 id="layouts">Layouts</h1>
+<p>Layouts are used for &quot;wrapping&quot; the content of individual pages with common elements</p>
+<pre><code>src/
+└── templates
+    └── layouts
+        ├── sidebar.hbs
+        └── default.hbs
+</code></pre><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">assemble: {
+  options: {
+    layout: &#39;default.hbs&#39;,
+    layoutdir: &#39;&lt;%= config.src %&gt;/templates/layouts/&#39;,
+  },
+  // Targets with parametrized options
+  docs: {
+    options: {layout: &#39;docs-layout.hbs&#39; },
+    files: {&#39;docs/&#39;: [&#39;src/docs/*.hbs&#39; ]},
+  },
+  site: {
+    options: {layout: &#39;site-layout.hbs&#39; },
+    files: {&#39;site/&#39;: [&#39;src/site/*.hbs&#39; ]},
+  }
+}
+</code></pre>
+

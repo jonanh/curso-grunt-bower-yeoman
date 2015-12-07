@@ -1,0 +1,16 @@
+<pre><code>function A() {
+    this[&quot;a&quot;] = 1;
+    this[&quot;b&quot;] = true;
+    this[&quot;c&quot;] = [1,2,3];
+}
+
+function B() {
+    this[&quot;a&quot;] = 1;
+    this[&quot;b&quot;] = true;
+    this[&quot;c&quot;] = [1,2,3];
+}
+
+A.prototype = new B();
+
+var object = new A();
+</code></pre>

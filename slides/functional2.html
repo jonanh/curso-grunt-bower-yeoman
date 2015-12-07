@@ -1,0 +1,8 @@
+<h3 id="monads">Monads</h3>
+<p>composable computation descriptions</p>
+<pre><code class="lang-haskell">class Monad m where
+  (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+  return :: a -&gt; m a
+  fail :: String -&gt; m a
+</code></pre>
+

@@ -1,0 +1,16 @@
+<h4 id="nested-layouts">Nested layouts</h4>
+<p>src/template/layouts/sidebar.hbs</p>
+<pre><code>---
+layout: default.hbs
+---
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-3&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;
+        ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-9&quot;&gt;
+    {{&gt; body }}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>

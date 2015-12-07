@@ -1,0 +1,12 @@
+<h4 id="grunt-custom-tasks">Grunt custom tasks</h4>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;dist&#39;, [&#39;concat:dist&#39;, &#39;uglify:dist&#39;]);
+</code></pre>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;foo&#39;, &#39;My &quot;foo&quot; task.&#39;, function() {
+  grunt.log.writeln(&#39;Currently running the &quot;default&quot; task.&#39;);
+  // Enqueue &quot;bar&quot; and &quot;baz&quot; tasks, to run after &quot;foo&quot; finishes, in-order.
+  grunt.task.run(&#39;bar&#39;, &#39;baz&#39;);
+  // Or:
+  grunt.task.run([&#39;bar&#39;, &#39;baz&#39;]);
+});
+</code></pre>
+

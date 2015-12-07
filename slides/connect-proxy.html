@@ -1,0 +1,30 @@
+<p>Añadir la regla configureProxies antes de arrancar el servidor connect</p>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;server&#39;, function (target) {
+grunt.task.run([
+...
+&#39;configureProxies:server&#39;,
+&#39;livereload-start&#39;,
+&#39;connect:livereload&#39;,
+...
+</code></pre>
+<p>Añadir el proxy en la tarea connect</p>
+<pre><code class="lang-javascript">connect: {
+    proxies: [
+        {
+            context: &#39;/&#39;,
+            host: &#39;localhost&#39;
+        }
+    ]
+}
+</code></pre>
+<p><a href="https://github.com/drewzboto/grunt-connect-proxy">https://github.com/drewzboto/grunt-connect-proxy</a></p>
+<p>proxies: [
+    context: &#39;/context&#39;,
+    host: &#39;host&#39;,
+    port: 8080,
+    rewrite: {
+        &#39;^/removingcontext&#39;: &#39;&#39;,
+        &#39;^/changingcontext&#39;: &#39;/anothercontext&#39;
+    }
+]</p>
+

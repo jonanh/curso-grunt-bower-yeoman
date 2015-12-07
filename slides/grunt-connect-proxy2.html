@@ -1,0 +1,20 @@
+<p>Add a proxy to avoid CORS issues when developing against a backend </p>
+<pre><code class="lang-javascript">connect: { ...
+    livereload: {
+        options: {
+            middleware: function(connect) {
+                return [
+                    ...
+                    connect.static(config.app),
+                    require(&#39;grunt-connect-proxy/lib/utils&#39;).proxyRequest,
+                ];
+            }
+        }
+    },
+    proxies: [{
+            context: &#39;/&#39;,
+            host: &#39;localhost&#39;
+    }]
+}
+</code></pre>
+

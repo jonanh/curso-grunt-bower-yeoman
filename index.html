@@ -4,34 +4,32 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Yeoman</title>
+        <title>Curso CSS3 Modern Workflows</title>
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
     
         <link rel="stylesheet" href="css/theme.css" id="theme">
     
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css" id="highlight-theme">
+        <link rel="stylesheet" href="bower_components/highlightjs/styles/zenburn.css">
 
-        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <!-- Printing and PDF exports -->
         <script>
-          if( window.location.search.match( /print-pdf/gi ) ) {
             var link = document.createElement( 'link' );
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = 'bower_components/reveal.js/css/print/pdf.css';
-                document.getElementsByTagName( 'head' )[0].appendChild( link );
-            }
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'bower_components/reveal.js/css/print/pdf.css' : 'bower_components/reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
         </script>
 
         <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
+        <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
         <![endif]-->
     </head>
 
@@ -47,12 +45,41 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/index.md"></section>
+    <section><h1 id="modern-workflows">Modern workflows</h1>
+<p>FOR MODERN WEBAPPS</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/modern.md"></section>
+    <section><h2 id="why-">Why?</h2>
+<ul>
+<li><p>Scaffold new projects using templates</p>
+</li>
+<li><p>Build process. </p>
+<ul>
+<li>Minifize, concatenate scripts and stylesheets.</li>
+<li>If using AMD pass those modules to r.js.</li>
+</ul>
+</li>
+<li><p>Compile CoffeeScript &amp; Sass.</p>
+</li>
+<li><p>Refresh the browser whenever a change is made.</p>
+</li>
+<li><p>Lint scripts for language best-practices.</p>
+</li>
+<li><p>Image Optimization using OptiPNG and JPEGTran.</p>
+</li>
+<li><p>Package management.</p>
+</li>
+<li><p>Unit Testing in a headless WebKit.</p>
+</li>
+<li><p>Built-in preview server.</p>
+</li>
+</ul>
+
+</section>
 
 
                             
@@ -64,27 +91,83 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/install.md"></section>
+    <section><h1 id="instalation">Instalation</h1>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/install.node.md"></section>
+    <section><h2 id="installing-nodejs">Installing nodejs</h2>
+<pre><code class="lang-bash"># Install nvm - Node Version Manager
+curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+
+# Load nvm 
+source ~/.nvm/nvm.sh
+
+# Install nodejs vr 0.10
+nvm install 0.10
+
+# Load nodejs vr 0.10
+nvm use 0.10
+
+# Set version 0.10 as default
+nvm alias default 0.10
+
+# Install packages as global
+npm -g install yo bower grunt-cli generator-webapp generator-angular
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/install.ruby.md"></section>
+    <section><h2 id="installing-ruby">Installing Ruby</h2>
+<pre><code class="lang-bash"># Install rvm - Ruby Version Manager
+curl -L https://get.rvm.io | bash -s stable
+
+# Load rvm
+source ~/.rvm/scripts/rvm
+
+# List available ruby versions
+rvm list
+
+# Install a ruby version and set it as default
+rvm install 2.0.0-p353
+
+# Load ruby version 2.0.0-p353 and set as default
+rvm use 2.0.0-p353 --default
+
+# Install packages
+gem install --pre sass compass
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/install.bashrc.md"></section>
+    <section><h2 id="-bashrc">~/.bashrc</h2>
+<p>Check rvm and nvm are correctly installed in bashrc.</p>
+<pre><code class="lang-bash">[[ -s ~/.nvm/nvm.sh ]] &amp;&amp; . ~/.nvm/nvm.sh
+
+[[ -s ~/.rvm/scripts/rvm ]] &amp;&amp; . ~/.rvm/scripts/rvm
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/install.yeoman.md"></section>
+    <section><h2 id="installing-yeoman-grunt-bower">Installing Yeoman, Grunt, Bower</h2>
+<pre><code class="lang-bash">npm -g install yo bower grunt-cli
+
+# Install a yeoman generator
+npm -g install generator-webapp
+</code></pre>
+
+</section>
 
 
                             
@@ -96,147 +179,378 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/nodejs.md"></section>
+    <section><h1 id="nodejs">NodeJS</h1>
+<p>Platform built on Chrome&#39;s JavaScript runtime for easily building fast, scalable network applications.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why.md"></section>
+    <section><p><a href="http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</a></p>
+<pre><code class="lang-javascript">var result = db.query(&quot;select * from T&quot;);
+</code></pre>
+<ul>
+<li><p>What is the software doing while it queries the database?</p>
+</li>
+<li><p>either blocks the entire process or implies multiple execution stacks. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>Other threads of execution can run while waiting. <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why2.md"></section>
+    <section><p><img src="assets/nodejs1.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why3.md"></section>
+    <section><p><img src="assets/nodejs2.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why4.md"></section>
+    <section><ul>
+<li><p>Context switching is not free</p>
+</li>
+<li><p>Execution stacks take up memory <!-- .element: class="fragment" --></p>
+</li>
+<li><p>For massive concurrency, cannot use an OS thread for each connection <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why5.md"></section>
+    <section><ul>
+<li><p>why isn’t everyone using event loops, callbacks, and non-blocking I/O?</p>
+</li>
+<li><p>For reasons both cultural and infrastructural.</p>
+</li>
+</ul>
+<p>We are taught to:</p>
+<pre><code class="lang-javascript">puts(&quot;Enter your name: &quot;);
+var name = gets();
+puts(&quot;Name: &quot; + name);
+</code></pre>
+<p>instead of:</p>
+<pre><code class="lang-javascript">puts(&quot;Enter your name: &quot;);
+gets(function (name) {
+  puts(&quot;Name: &quot; + name);
+});
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why6.md"></section>
+    <section><pre><code class="lang-javascript">db.query(&quot;select..&quot;, function (result) {
+    // callback
+});
+</code></pre>
+<ul>
+<li><p>Allows the program to return to the event loop immediately.</p>
+</li>
+<li><p>This is how I/O should be done. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>every I/O call must take a callback <!-- .element: class="fragment" --></p>
+</li>
+<li><p>JavaScript lacked an existing I/O API <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/node.why7.md"></section>
+    <section><h2 id="design-principles">design principles</h2>
+<ul>
+<li><p>Non-blocking I/O</p>
+<ul>
+<li>every I/O call must take a callback. <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+<li><p>Built-in support for the most important protocols <!-- .element: class="fragment" --></p>
+<ul>
+<li>HTTP, DNS, TLS <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+<li><p>Low-level. <!-- .element: class="fragment" --></p>
+<ul>
+<li>Do not remove functionality present at the POSIX layer. <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+<li><p>Stream everything; never force the buffering of data. <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.md"></section>
+    <section><h2 id="why-javascript-">Why JavaScript?</h2>
+<p><a href="http://blogs.gnome.org/alexl/2008/09/09/embeddable-languages-an-implementation/">http://blogs.gnome.org/alexl/2008/09/09/embeddable-languages-an-implementation/</a></p>
+<p>Lets look why Gnome decided to use it</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why2.md"></section>
+    <section><h3 id="its-a-modern-dynamic-language">Its a modern dynamic language</h3>
+<ul>
+<li>Its dynamically typed</li>
+<li>it has precise gargabe collection</li>
+<li>lambda functions</li>
+<li>generators</li>
+<li>array comprehension</li>
+<li>etc</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why3.md"></section>
+    <section><h3 id="its-object-oriented">Its object oriented</h3>
+<ul>
+<li>The JavaScript prototype-based model is a bit weird, but its simple and it works.</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why4.md"></section>
+    <section><h3 id="it-has-no-platform-of-its-own">It has no “platform” of its own</h3>
+<p>The Gnome platform (Gtk+, Gio, etc) doesn’t have to fight with any “native” versions of the same functionallity.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why5.md"></section>
+    <section><h3 id="lots-of-people-know-it">Lots of people know it</h3>
+<p>Chances of finding someone who knows JS is far higher than finding someone who knows e.g. lua or scheme</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why6.md"></section>
+    <section><h3 id="lots-of-activity">Lots of activity</h3>
+<ul>
+<li><p>The language continually evolves.</p>
+</li>
+<li><p>Competetive implementations, each trying to be best.</p>
+<ul>
+<li>TraceMoney vs Google v8.</li>
+<li>Such performance work and focus is unlikely to happen in smaller and less used languages.</li>
+</ul>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.inheritance.md"></section>
+    <section><p><img src="assets/inheritance.png" alt=""></p>
+<pre><code class="lang-javascript">var object;
+object = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+object.__proto__ = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+object.__proto__.__proto__ === {}.__proto__;
+
+object.__proto__.__proto__.__proto__ === null;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.inheritance2.md"></section>
+    <section><pre><code>var b = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+var object = Object.create(b);
+
+object[&quot;a&quot;] = 1;
+object[&quot;b&quot;] = true;
+object[&quot;c&quot;] = [1, 2, 3];
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.inheritance22.md"></section>
+    <section><pre><code>// Object.defineProperties
+var a = {
+  &quot;a&quot;: { value: &quot;hello&quot; },
+  &quot;b&quot;: { value: true },
+  &quot;c&quot;: {
+    get: function() { return true },
+    set: function(value) { console.log(&quot;Setting `b` to&quot;, value) }
+  }
+};
+
+var b = {
+    &quot;a&quot;: 1,
+    &quot;b&quot;: true,
+    &quot;c&quot;: [1,2,3]
+};
+
+var object = Object.create(b, a);
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.inheritance3.md"></section>
+    <section><pre><code>function A() {
+    this[&quot;a&quot;] = 1;
+    this[&quot;b&quot;] = true;
+    this[&quot;c&quot;] = [1,2,3];
+}
+
+function B() {
+    this[&quot;a&quot;] = 1;
+    this[&quot;b&quot;] = true;
+    this[&quot;c&quot;] = [1,2,3];
+}
+
+A.prototype = new B();
+
+var object = new A();
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.inheritance4.md"></section>
+    <section><h4 id="angularjs-scope-prototypal-inheritance">AngularJS scope prototypal inheritance</h4>
+<p><img src="assets/angular.scope.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.closures.md"></section>
+    <section><h4 id="closures">Closures</h4>
+<p>Functions which take a small amount of metadata that describes the environment in which they were defined.</p>
+<pre><code class="lang-javascript">
+var counter = (function () {
+    var count = 0;
+    return function () {
+        console.log(count++);
+    }
+})();
+
+counter(); // 0
+counter(); // 1
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/javascript.why.closures2.md"></section>
+    <section><p>Java 7 doesn&#39;t support closures</p>
+<p><img src="assets/closures.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/functional.md"></section>
+    <section><h2 id="apply-functional-programming-principles">Apply Functional Programming Principles</h2>
+<p><a href="http://programmer.97things.oreilly.com/wiki/index.php/Apply_Functional_Programming_Principles">97 Things Every Programmer Should Know</a></p>
+<p>Mastery of the functional programming paradigm can greatly improve the quality of the code you write in other contexts.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/functional2.md"></section>
+    <section><h3 id="monads">Monads</h3>
+<p>composable computation descriptions</p>
+<pre><code class="lang-haskell">class Monad m where
+  (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+  return :: a -&gt; m a
+  fail :: String -&gt; m a
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/promises5.md"></section>
+    <section><p>Material del curso JavaScript para Profesionales by redradix</p>
+<p><a href="https://github.com/redradix/material-projs.git">https://github.com/redradix/material-projs.git</a></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/promises.md"></section>
+    <section><p><img src="assets/promesas1.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/promises2.md"></section>
+    <section><p><img src="assets/promesas2.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/promises3.md"></section>
+    <section><p><img src="assets/promesas3.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/promises4.md"></section>
+    <section><p><img src="assets/promesas4.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/functional3.md"></section>
+    <section><h2 id="curious-about-functional-programming-">Curious about functional programming?</h2>
+<p><a href="http://slides.com/gsklee/functional-programming-in-5-minutes">http://slides.com/gsklee/functional-programming-in-5-minutes</a></p>
+<p><a href="http://learnyouahaskell.com/chapters">http://learnyouahaskell.com/chapters</a></p>
+
+</section>
 
 
                             
@@ -248,82 +562,236 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/yeoman.md"></section>
+    <section><h1 id="yeoman">Yeoman</h1>
+<p>The web&#39;s scaffolding tool for modern webapps</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.intro.md"></section>
+    <section><ul>
+<li><p>yo scaffolds out a new application</p>
+<ul>
+<li>writing your Grunt configuration and pulling in relevant Grunt tasks. <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+<li><p>Grunt is used to build, preview and test your project <!-- .element: class="fragment" --></p>
+<ul>
+<li>thanks to help from tasks curated by the Yeoman team and grunt-contrib. <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+<li><p>Bower is used for dependency management <!-- .element: class="fragment" --></p>
+<ul>
+<li>so that you no longer have to manually download and manage your scripts. <!-- .element: class="fragment" --></li>
+</ul>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.features.md"></section>
+    <section><h2 id="features">Features</h2>
+<ul>
+<li>CSS Autoprefixing (new)</li>
+<li>Built-in preview server with LiveReload</li>
+<li>Automagically compile CoffeeScript &amp; Sass</li>
+<li>Automagically lint your scripts</li>
+<li>Automagically wire up your Bower components with bower-install.</li>
+<li>Awesome Image Optimization (via OptiPNG, pngquant, jpegtran and gifsicle)</li>
+<li>Mocha Unit Testing with PhantomJS</li>
+<li>Optional - Bootstrap for Sass</li>
+<li>Optional - Leaner Modernizr builds (new)</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman2.md"></section>
+    <section><h3 id="select-a-generator">Select a generator</h3>
+<p><img src="/assets/yeoman0.png" alt=""></p>
+<pre><code class="lang-bash">yo
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman3.md"></section>
+    <section><h3 id="generator-options">Generator options</h3>
+<p><img src="/assets/yeoman1.png" alt=""></p>
+<pre><code class="lang-bash">yo webapp # to use webapp generator directly
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman5.md"></section>
+    <section><p><img src="/assets/yeoman2.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.md"></section>
+    <section><h2 id="generators">Generators</h2>
+<p>webapp hola ke hase</p>
+<p>The reference generator</p>
+<p><a href="https://github.com/yeoman/generator-webapp">https://github.com/yeoman/generator-webapp</a></p>
+<ul>
+<li>CSS Autoprefixing (new)</li>
+<li>Built-in preview server with LiveReload</li>
+<li>Automagically compile CoffeeScript &amp; Sass</li>
+<li>Automagically lint your scripts</li>
+<li>Automagically wire up your Bower components with bower-install.</li>
+<li>Awesome Image Optimization (via OptiPNG, pngquant, jpegtran and gifsicle)</li>
+<li>Mocha Unit Testing with PhantomJS</li>
+<li>Optional - Bootstrap for Sass</li>
+<li>Optional - Leaner Modernizr builds (new)</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.webapp.md"></section>
+    <section><h2 id="webapp-generator">webapp generator</h2>
+<p>The reference generator</p>
+<p><a href="https://github.com/yeoman/generator-webapp">https://github.com/yeoman/generator-webapp</a></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.webapp2.md"></section>
+    <section><pre><code class="lang-bash"># Install reveal generator
+npm install -g generator-webapp
+
+# Create a dir for the project
+mkdir project; cd project;
+
+# Scaffold
+yo webapp
+
+# Start server
+grunt serve
+
+# Build project
+grunt build
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.revealjs.md"></section>
+    <section><h2 id="reveal-generator">reveal generator</h2>
+<p><a href="https://github.com/slara/generator-reveal">https://github.com/slara/generator-reveal</a></p>
+<p>Create revealjs slides.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.revealjs2.md"></section>
+    <section><pre><code class="lang-bash"># Install reveal generator
+npm install -g generator-reveal
+
+# Create a dir for the slides
+mkdir slides; cd slides;
+
+# Scaffold
+yo reveal
+
+# Create a new slide
+yo reveal:slide &quot;Slide Title&quot; --markdown
+
+# Start grunt server
+grunt server
+
+# Build
+grunt build
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.revealjs3.md"></section>
+    <section><h3 id="slide-list">Slide list</h3>
+<p>slides/list.json</p>
+<pre><code class="lang-json">[
+    &quot;index.md&quot;,
+    [
+        &quot;vertical-html.html&quot;,
+        &quot;vertical-markdown.md&quot;
+    ],
+    [
+        &quot;vertical-html-2.html&quot;,
+        &quot;vertical-markdown-2.md&quot;
+    ],
+    &quot;the-end.md&quot;
+]
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.revealjs4.md"></section>
+    <section><h4 id="markdown-slide-example">markdown slide example</h4>
+<p>slides/slide.md</p>
+<pre><code class="lang-markdown">&lt;!-- .slide: data-background=&quot;#ff0000&quot; --&gt;
+
+* item1 &lt;!-- .element: class=&quot;fragment&quot; data-fragment-index=&quot;2&quot; --&gt;
+
+* item2 &lt;!-- .element: class=&quot;fragment&quot; data-fragment-index=&quot;1&quot; --&gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.angularfull.md"></section>
+    <section><h2 id="angular-full-stack-generator">Angular Full Stack Generator</h2>
+<p><a href="https://github.com/DaftMonk/generator-angular-fullstack">https://github.com/DaftMonk/generator-angular-fullstack</a></p>
+<p>Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.angularfull2.md"></section>
+    <section><ul>
+<li>Express server integrated with grunt tasks</li>
+<li>Livereload of client and server files</li>
+<li>Support for Jade and CoffeeScript</li>
+<li>Easy deployment workflow.</li>
+<li>Optional MongoDB integration</li>
+<li>Optional Passport integration for adding user accounts</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/yeoman.generators.angularfull3.md"></section>
+    <section><pre><code>npm install -g generator-angular-fullstack
+
+# Launch your express server in development mode.
+grunt serve
+
+# Launch your express server in debug-brk mode with a node-inspector tab.
+grunt serve:debug
+
+# Launch your express server in production mode, uses the minified/optimized production folder.
+grunt serve:dist
+</code></pre>
+</section>
 
 
                             
@@ -335,62 +803,139 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/bower.md"></section>
+    <section><h1 id="bower">Bower</h1>
+<p>A package manager for the web</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower2.md"></section>
+    <section><h2 id="install-bower">Install bower</h2>
+<pre><code>npm install -g bower
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower3.md"></section>
+    <section><h2 id="bower-json">bower.json</h2>
+<p>Create a bower.json file</p>
+<pre><code class="lang-bash">bower init
+</code></pre>
+<pre><code>{
+  &quot;name&quot;: &quot;webapp&quot;,
+  &quot;private&quot;: true,
+  &quot;dependencies&quot;: {
+    &quot;bootstrap-sass-official&quot;: &quot;~3.1.0&quot;,
+    &quot;modernizr&quot;: &quot;~2.6.2&quot;,
+    &quot;jquery&quot;: &quot;~1.11.0&quot;
+  },
+  &quot;devDependencies&quot;: {}
+}
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower4.md"></section>
+    <section><h2 id="install-dependencies">Install dependencies</h2>
+<p>Install the dependencies listed in the current directory&#39;s bower.json</p>
+<pre><code class="lang-bash">bower install
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower5.md"></section>
+    <section><h2 id="search">Search</h2>
+<pre><code class="lang-bash">bower search [&lt;name&gt;]
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower6.md"></section>
+    <section><h2 id="install-a-package">Install a package</h2>
+<pre><code class="lang-bash">bower install &lt;package&gt; --save
+
+# Using a different name and a specific version of a package
+bower install &lt;name&gt;=&lt;package&gt;#&lt;version&gt; --save
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower7.md"></section>
+    <section><p><img src="assets/bower.install.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower8.md"></section>
+    <section><h2 id="conflicts">Conflicts</h2>
+<p><img src="assets/bower.resolution.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower9.md"></section>
+    <section><h2 id="grunt-bowerinstall">Grunt bowerInstall</h2>
+<p>Grunt bowerInstall task will install automatically js and css files in the app/index.html file if the dependency defines a main.js entry in its bower.json file.</p>
+<pre><code class="lang-bash">grunt bowerInstall
+</code></pre>
+<p>Note: gruntfile.js created with latest yeoman webapp generator will install dependencies automatically.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower10.md"></section>
+    <section><p>The primary endpoints of the installed packages.</p>
+<p><img src="assets/bower.installed.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower11.md"></section>
+    <section><p>app/index.html</p>
+<pre><code class="html">&lt;!-- build:js scripts/vendor.js --&gt;
+&lt;!-- bower:js --&gt;
+&lt;script src=&quot;../bower_components/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../bower_components/bootstrap-sass-.../affix.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../bower_components/bootstrap-sass-.../alert.js&quot;&gt;&lt;/script&gt;
+...
+&lt;!-- endbower --&gt;
+&lt;!-- endbuild --&gt;
+</code></pre>
+
+<p>app/styles/main.scss</p>
+<pre><code class="lang-css">$icon-font-path: &quot;/bower_components/bootstrap-sass-.../fonts/bootstrap/&quot;;
+
+// bower:scss
+@import &#39;../../bower_components/bootstrap-sass-.../bootstrap.scss&#39;;
+// endbower
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/bower13.md"></section>
+    <section><h2 id="custom-install-dir">Custom install dir</h2>
+<p>Configurable through <code>.bowerrc</code> file.</p>
+<pre><code class="lang-json">{
+  &quot;directory&quot;: &quot;public/bower_components&quot;
+}
+</code></pre>
+
+</section>
 
 
                             
@@ -402,47 +947,200 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/grunt.md"></section>
+    <section><h1 id="grunt">GRUNT</h1>
+<p>The JavaScript Task Runner</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.gruntfilejs.md"></section>
+    <section><h2 id="gruntfile-js">Gruntfile.js</h2>
+<pre><code class="lang-javascript">&#39;use strict&#39;;
+// wrapper function
+module.exports = function (grunt) {
+</code></pre>
+<pre><code class="lang-javascript">  // Load grunt tasks automatically
+  require(&#39;load-grunt-tasks&#39;)(grunt);
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Define the configuration for all the tasks
+  grunt.initConfig({
+  });
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Load manually a plugin.
+  grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;);
+</code></pre>
+<!-- .element: class="fragment" -->
+<pre><code class="lang-javascript">  // Define custom tasks and aliases
+  grunt.registerTask(&#39;wait&#39;, function () {});
+
+  grunt.registerTask(&#39;default&#39;, [
+    &#39;newer:jshint&#39;,
+    &#39;build&#39;
+  ]);
+};
+</code></pre>
+<!-- .element: class="fragment" -->
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.tasks.md"></section>
+    <section><h4 id="tasks">Tasks</h4>
+<pre><code class="lang-javascript">grunt.initConfig({
+  concat: {
+    // concat task configuration goes here.
+  },
+  uglify: {
+    // uglify task configuration goes here.
+  },
+  // Arbitrary non-task-specific properties.
+  my_property: &#39;whatever&#39;,
+  my_src_files: [&#39;foo/*.js&#39;, &#39;bar/*.js&#39;],
+});
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.tasks.targets.md"></section>
+    <section><h4 id="task-configuration-and-targets">Task Configuration and Targets</h4>
+<pre><code class="lang-javascript">grunt.initConfig({
+  concat: {
+    foo: {
+      // concat task &quot;foo&quot; target options and files go here.
+    },
+    bar: {
+      // concat task &quot;bar&quot; target options and files go here.
+    },
+  },
+  uglify: {
+    bar: {
+      // uglify task &quot;bar&quot; target options and files go here.
+    },
+  },
+});
+</code></pre>
+<pre><code class="lang-bash">grunt concat:foo
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.tasks.custom.md"></section>
+    <section><h4 id="grunt-custom-tasks">Grunt custom tasks</h4>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;dist&#39;, [&#39;concat:dist&#39;, &#39;uglify:dist&#39;]);
+</code></pre>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;foo&#39;, &#39;My &quot;foo&quot; task.&#39;, function() {
+  grunt.log.writeln(&#39;Currently running the &quot;default&quot; task.&#39;);
+  // Enqueue &quot;bar&quot; and &quot;baz&quot; tasks, to run after &quot;foo&quot; finishes, in-order.
+  grunt.task.run(&#39;bar&#39;, &#39;baz&#39;);
+  // Or:
+  grunt.task.run([&#39;bar&#39;, &#39;baz&#39;]);
+});
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.tasks.custom2.md"></section>
+    <section><p>Example: wait untill the server is up</p>
+<pre><code class="lang-javascript">grunt.registerTask(&#39;wait&#39;, function () {
+    var interval, socket, done = this.async();
+    grunt.log.ok(&#39;Waiting for server reload...&#39;);
+
+    socket = new require(&#39;net&#39;).Socket();
+    socket.on(&#39;error&#39;, function () {});
+    socket.connect(grunt.config.data.yeoman.port, function () {
+        socket.destroy();
+        clearInterval(interval);
+        grunt.log.writeln(&#39;Done waiting!&#39;);
+        done();
+    });
+
+    interval = setInterval(function () {
+        socket.connect(grunt.config.data.yeoman.port);
+    }, 100);
+});
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.files.notation.md"></section>
+    <section><h4 id="files">Files</h4>
+<pre><code class="lang-javascript">// Compact Format
+concat: {
+  src: [&#39;src/bb.js&#39;, &#39;src/bbb.js&#39;],
+  dest: &#39;dest/b.js&#39;,
+},
+</code></pre>
+<pre><code class="lang-javascript">// Files Object Format
+concat: {
+  files: {
+    &#39;dest/a.js&#39;: [&#39;src/aa.js&#39;, &#39;src/aaa.js&#39;],
+    &#39;dest/a1.js&#39;: [&#39;src/aa1.js&#39;, &#39;src/aaa1.js&#39;],
+  },
+},
+</code></pre>
+<pre><code class="lang-javascript">// Files Array Format
+concat: {
+  files: [
+    {src: [&#39;src/aa.js&#39;, &#39;src/aaa.js&#39;], dest: &#39;dest/a.js&#39;},
+    {src: [&#39;src/aa1.js&#39;, &#39;src/aaa1.js&#39;], dest: &#39;dest/a1.js&#39;},
+  ],
+},
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.files.notation2.md"></section>
+    <section><h4 id="building-the-files-object-dynamically">Building the files object dynamically</h4>
+<pre><code class="lang-javascript">files: [
+  {
+    expand: true,     // Enable dynamic expansion.
+    cwd: &#39;lib/&#39;,      // Src matches are relative to this path.
+    src: [&#39;**/*.js&#39;], // Actual pattern(s) to match.
+    dest: &#39;build/&#39;,   // Destination path prefix.
+    ext: &#39;.min.js&#39;,   // Dest filepaths will have this extension.
+    extDot: &#39;first&#39;,  // Extensions in filenames begin after the first dot
+    flatten: false    // Remove all path parts from generated dest paths.
+  },
+],
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt.globbing.md"></section>
+    <section><h4 id="globbing-patterns">Globbing patterns</h4>
+<ul>
+<li><code>*</code> matches any number of characters, but not /</li>
+<li><code>?</code> matches a single character, but not /</li>
+<li><code>**</code> matches any number of characters, including /, as long as it&#39;s the only thing in a path part</li>
+<li><code>{}</code> allows for a comma-separated list of &quot;or&quot; expressions</li>
+<li><code>!</code> at the beginning of a pattern will negate the match</li>
+</ul>
+<p><br></p>
+<h4 id="tricky-examples">Tricky examples</h4>
+<pre><code class="lang-javascript">// Here, bar.js is first, followed by the remaining files, in alpha order:
+{src: [&#39;foo/bar.js&#39;, &#39;foo/*.js&#39;], dest: ...}
+
+// All files except for bar.js, in alpha order:
+{src: [&#39;foo/*.js&#39;, &#39;!foo/bar.js&#39;], dest: ...}
+</code></pre>
+
+</section>
 
 
                             
@@ -454,172 +1152,558 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/exploring.webapp.md"></section>
+    <section><h1 id="grunt-plugins">Grunt plugins</h1>
+<p>Lets take a look into the plugins used by generator-webapp</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-contrib-copy.md"></section>
+    <section><h2 id="grunt-contrib-copy">Grunt contrib copy</h2>
+<p><a href="https://github.com/gruntjs/grunt-contrib-copy">https://github.com/gruntjs/grunt-contrib-copy</a></p>
+<p>Copy files and folders.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-contrib-copy2.md"></section>
+    <section><pre><code class="lang-javascript">copy: {
+  dist: {
+    files: [{
+      expand: true,
+      dot: true,
+      cwd: &#39;&lt;%= yeoman.app %&gt;&#39;,
+      dest: &#39;&lt;%= yeoman.dist %&gt;/public&#39;,
+      src: [
+        &#39;*.{ico,png,txt}&#39;,
+        &#39;.htaccess&#39;,
+        &#39;bower_components/**/*&#39;,
+        &#39;images/{,*/}*.{webp}&#39;,
+        &#39;fonts/**/*&#39;
+      ]
+    }]
+  },
+},
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-bower.md"></section>
+    <section><h2 id="grunt-bower-install">grunt-bower-install</h2>
+<p><a href="https://github.com/stephenplusplus/grunt-bower-install">https://github.com/stephenplusplus/grunt-bower-install</a></p>
+<p>Inject your Bower dependencies right into your HTML from Grunt.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-bower2.md"></section>
+    <section><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">bowerInstall: {
+    app: {
+        src: [
+            // html support
+            &#39;&lt;%= config.app %&gt;/index.html&#39;
+            &#39;&lt;%= config.app %&gt;/**/*.html&#39;,
+            // jade support
+            &#39;&lt;%= config.app %&gt;/views/**/*.jade&#39;,
+            // .scss &amp; .sass support
+            &#39;&lt;%= config.app %&gt;/styles/main.scss&#39;,
+        ],
+        exclude: [&#39;bower_components/bootstrap/dist/js/bootstrap.js&#39;]
+    }
+},
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-bower3.md"></section>
+    <section><p>app/index.html</p>
+<pre><code class="html">&lt;!-- bower:js --&gt;
+&lt;script src=&quot;../bower_components/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbower --&gt;
+</code></pre>
+
+
+<p>app/styles/main.scss</p>
+<pre><code class="lang-css">$icon-font-path: &quot;/bower_components/bootstrap-sass-official/...&quot;;
+
+// bower:scss
+@import &#39;../../bower_components/.../bootstrap.scss&#39;;
+// endbower
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-bower4.md"></section>
+    <section><pre><code class="lang-bash"># Run the task from command line
+grunt bowerInstall
+
+# The latest webapp watches bower.json and runs bowerInstall
+grunt watch
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin.md"></section>
+    <section><h2 id="grunt-usemin">Grunt-usemin</h2>
+<p><a href="https://github.com/yeoman/grunt-usemin">https://github.com/yeoman/grunt-usemin</a></p>
+<p>Replaces references to non-optimized scripts or stylesheets.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin2.md"></section>
+    <section><h4 id="usemin-exports-2-different-tasks-">usemin exports 2 different tasks:</h4>
+<ul>
+<li><p>useminPrepare.</p>
+<ul>
+<li>prepares the configuration to transform specific construction (blocks) into a single line.</li>
+<li>transformation flow: concat -&gt; uglifyjs</li>
+</ul>
+</li>
+<li><p>usemin</p>
+<ul>
+<li>replaces the blocks by the file they reference</li>
+<li>references to assets by their revisioned version (grunt-rev)</li>
+</ul>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin3.md"></section>
+    <section><h3 id="useminprepare">useminPrepare</h3>
+<p>app/index.html</p>
+<pre><code class="html">&lt;!-- build:js js/main.js --&gt;
+&lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/controllers/thing-controller.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/models/thing-model.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/views/thing-view.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;
+</code></pre>
+
+<p>Gruntfile.js</p>
+<pre><code>useminPrepare: {
+    options: {
+        dest: &#39;&lt;%= config.dist %&gt;&#39;
+    },
+    html: &#39;&lt;%= config.app %&gt;/index.html&#39;
+},
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin4.md"></section>
+    <section><p>Generated configuration for concat and uglify tasks</p>
+<pre><code class="lang-javascript">{
+  concat: {
+    &#39;.tmp/concat/js/main.js&#39;: [
+      &#39;app/js/app.js&#39;,
+      &#39;app/js/controllers/thing-controller.js&#39;,
+      &#39;app/js/models/thing-model.js&#39;,
+      &#39;app/js/views/thing-view.js&#39;
+    ]
+  },
+  uglifyjs: {
+    &#39;dist/js/main.js&#39;: [&#39;.tmp/concat/js/main.js&#39;]
+  }
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin5.md"></section>
+    <section><p>Performs rewrites based on rev and the useminPrepare configuration</p>
+<pre><code class="lang-javascript">usemin: {
+  options: {
+      assetsDirs: [&#39;&lt;%= config.dist %&gt;&#39;, &#39;&lt;%= config.dist %&gt;/images&#39;]
+  },
+  html: [&#39;&lt;%= config.dist %&gt;/{,*/}*.html&#39;],
+  css: [&#39;&lt;%= config.dist %&gt;/styles/{,*/}*.css&#39;]
+},
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-usemin6.md"></section>
+    <section><pre><code class="html">&lt;!-- build:js js/main.js --&gt;
+&lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/controllers/thing-controller.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/models/thing-model.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/views/thing-view.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;
+</code></pre>
+
+<h4 id="after-usemin">After usemin</h4>
+<pre><code class="html">&lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h4 id="after-usemin-grunt-rev">After usemin + grunt-rev</h4>
+<pre><code class="html">&lt;script src=&quot;js/b6c3df09.main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer.md"></section>
+    <section><h2 id="autoprefixer">autoprefixer</h2>
+<p><a href="https://github.com/nDmitry/grunt-autoprefixer">https://github.com/nDmitry/grunt-autoprefixer</a></p>
+<ul>
+<li><p>Forget about vendor prefixes and write normal CSS according to the latest W3C specs.</p>
+</li>
+<li><p>Avoid any special language (like Sass) or special mixins.</p>
+</li>
+<li><p>Uses data from <a href="http://caniuse.com">Can I Use</a>, understands which browsers are actual and popular and adds only the necessary vendor prefixes.</p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer2.md"></section>
+    <section><p>Lets take some CSS3</p>
+<pre><code class="lang-css">a {
+  background: linear-gradient(to top, black, white);
+  display: flex
+}
+
+::placeholder {
+  color: #ccc
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer3.md"></section>
+    <section><p>Supporting the last version of each browser and IE7</p>
+<pre><code class="lang-javascript">autoprefixer: {
+    options: {
+            browsers: [&quot;last 1 version&quot;, &quot;&gt; 1%&quot;, &quot;Explorer 7&quot;]
+    }
+]
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer4.md"></section>
+    <section><p>We get</p>
+<pre><code class="lang-css">a {
+  background: -webkit-gradient(linear, left bottom, left top, 
+    from(black), to(white));
+  background: -webkit-linear-gradient(bottom, black, white);
+  background: linear-gradient(to top, black, white);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+::-webkit-input-placeholder {
+  color: #cccccc; }
+::-moz-placeholder {
+  color: #cccccc; }
+:-ms-input-placeholder {
+  color: #cccccc; }
+::placeholder {
+  color: #cccccc; }
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer5.md"></section>
+    <section><p>Supporting the latest version of each browser</p>
+<pre><code class="lang-javascript">autoprefixer: {
+    options: {
+            browsers: [&#39;last 1 version&#39;]
+    }
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-autoprefixer6.md"></section>
+    <section><p>We get:</p>
+<pre><code class="lang-css">a {
+  background: linear-gradient(to top, black, white);
+  display: flex; }
+
+::placeholder {
+  color: #cccccc; }
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-contrib-watch.md"></section>
+    <section><h2 id="grunt-contrib-watch">grunt-contrib-watch</h2>
+<p><a href="https://github.com/gruntjs/grunt-contrib-watch">https://github.com/gruntjs/grunt-contrib-watch</a></p>
+<p>Watches files for changes and runs tasks based on the changed files.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-contrib-watch2.md"></section>
+    <section><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">    watch: {
+        sass: {
+            files: [&#39;&lt;%= config.app %&gt;/styles/{,*/}*.{scss,sass}&#39;],
+            tasks: [&#39;sass:server&#39;, &#39;autoprefixer&#39;]
+        },
+
+        js: {
+            files: [&#39;&lt;%= yeoman.app %&gt;/scripts/{,*/}*.js&#39;],
+            tasks: [&#39;newer:jshint:all&#39;],
+            options: {
+                livereload: true
+            }
+        },
+    }
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-sass.md"></section>
+    <section><h2 id="grunt-sass">Grunt sass</h2>
+<p><a href="https://github.com/sindresorhus/grunt-sass">https://github.com/sindresorhus/grunt-sass</a></p>
+<p>Compile SCSS to CSS using node-sass (the experimental and superfast Node.js based Sass compiler)</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-sass2.md"></section>
+    <section><pre><code class="lang-javascript">sass: {
+    options: {
+        sourceMap: true,
+        loadPath: [
+            &#39;bower_components&#39;
+        ]
+    },
+    server: {
+        files: [{
+            expand: true,
+            cwd: &#39;&lt;%= config.app %&gt;/styles&#39;,
+            src: [&#39;*.scss&#39;],
+            dest: &#39;.tmp/styles&#39;,
+            ext: &#39;.css&#39;
+        }]
+    }
+},
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-jshint.md"></section>
+    <section><h2 id="grunt-contrib-jshint">grunt-contrib-jshint</h2>
+<p>A tool that helps to detect errors and potential problems in your JavaScript code.</p>
+<p><a href="http://www.jshint.com/">http://www.jshint.com/</a>
+<a href="https://github.com/gruntjs/grunt-contrib-jshint">https://github.com/gruntjs/grunt-contrib-jshint</a></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-jshint2.md"></section>
+    <section><p><img src="assets/jshint1.png" alt=""></p>
+<p><img src="assets/jshint0.png" alt=""></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-jshint3.md"></section>
+    <section><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">  // Make sure code styles are up to par and there are no obvious mistakes
+  jshint: {
+    options: {
+      jshintrc: &#39;.jshintrc&#39;,
+      reporter: require(&#39;jshint-stylish&#39;)
+    },
+    // Check the node backend files
+    server: {
+      options: {
+        jshintrc: &#39;lib/.jshintrc&#39;
+      },
+      src: [ &#39;lib/{,*/}*.js&#39;]
+    },
+  },
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-connect.md"></section>
+    <section><h2 id="grunt-contrib-connect">grunt-contrib-connect</h2>
+<p><a href="https://github.com/gruntjs/grunt-contrib-connect">https://github.com/gruntjs/grunt-contrib-connect</a></p>
+<p>Start a connect web server.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-connect2.md"></section>
+    <section><pre><code class="lang-javascript">connect: {
+    options: {
+        port: 9000,
+        open: true,
+        livereload: 35729,
+        // Change this to &#39;0.0.0.0&#39; to access the server from outside
+        hostname: &#39;localhost&#39;
+    },
+</code></pre>
+<pre><code class="lang-javascript">    livereload: {
+        options: {
+            middleware: function(connect) {
+                return [
+                    // Add created files
+                    connect.static(&#39;.tmp&#39;),
+                    // Add files under /bower_components prefix
+                    connect().use(&#39;/bower_components&#39;, 
+                        connect.static(&#39;./bower_components&#39;)),
+                    // Add content under app/
+                    connect.static(config.app),
+                ];
+            }
+        }
+    },
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-connect-proxy.md"></section>
+    <section><h2 id="grunt-connect-proxy">Grunt connect proxy</h2>
+<p><a href="https://github.com/drewzboto/grunt-connect-proxy">https://github.com/drewzboto/grunt-connect-proxy</a></p>
+<p>Provides a http proxy as middleware for the grunt-contrib-connect plugin.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-connect-proxy2.md"></section>
+    <section><p>Add a proxy to avoid CORS issues when developing against a backend </p>
+<pre><code class="lang-javascript">connect: { ...
+    livereload: {
+        options: {
+            middleware: function(connect) {
+                return [
+                    ...
+                    connect.static(config.app),
+                    require(&#39;grunt-connect-proxy/lib/utils&#39;).proxyRequest,
+                ];
+            }
+        }
+    },
+    proxies: [{
+            context: &#39;/&#39;,
+            host: &#39;localhost&#39;
+    }]
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-concurrent"></section>
+    <section><h2 id="grunt-concurrent">Grunt concurrent</h2>
+<p><a href="https://github.com/sindresorhus/grunt-concurrent">https://github.com/sindresorhus/grunt-concurrent</a></p>
+<p>Run some tasks in parallel</p>
+<ul>
+<li>to speed up the build process, for example :-)</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-concurrent2"></section>
+    <section><p>Gruntfile.js</p>
+<pre><code class="lang-bash">    concurrent: {
+      server: [
+        &#39;compass:server&#39;,
+        &#39;jade:compile&#39;,
+        &#39;copy:styles&#39;
+      ],
+      dist: [
+        &#39;compass:dist&#39;,
+        &#39;imagemin&#39;,
+        &#39;svgmin&#39;,
+        &#39;htmlmin&#39;
+      ]
+    },
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-ngmin.md"></section>
+    <section><h2 id="grunt-ngmin">Grunt ngmin</h2>
+<p><a href="https://github.com/btford/grunt-ngmin">https://github.com/btford/grunt-ngmin</a></p>
+<p>Grunt plugin for pre-minifying Angular apps</p>
+<p>Turns this</p>
+<pre><code class="lang-javascript">angular.module(&#39;whatever&#39;).controller(&#39;MyCtrl&#39;, function ($scope, $http) { ... });
+</code></pre>
+<p>Into</p>
+<pre><code class="lang-javascript">angular.module(&#39;whatever&#39;).controller(&#39;MyCtrl&#39;, [&#39;$scope&#39;, &#39;$http&#39;, function ($scope, $http) { ... }]);
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/grunt-ngmin2.md"></section>
+    <section><pre><code class="lang-javascript">// Allow the use of non-minsafe AngularJS files. Automatically makes it
+// minsafe compatible so Uglify does not destroy the ng references
+ngmin: {
+  dist: {
+    files: [{
+      expand: true,
+      cwd: &#39;.tmp/concat/scripts&#39;,
+      src: &#39;*.js&#39;,
+      dest: &#39;.tmp/concat/scripts&#39;
+    }]
+  }
+},
+</code></pre>
+
+</section>
 
 
                             
@@ -631,107 +1715,424 @@
                         <section>
                             
                                 
-    <section data-markdown="slides/assemble.md"></section>
+    <section><h1 id="assemble-io">Assemble.io</h1>
+<p><a href="https://github.com/assemble/assemble">https://github.com/assemble/assemble</a></p>
+<p>A static site generator for Node.js, Grunt.js, and Yeoman.</p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.intro.md"></section>
+    <section><h2 id="why-">Why?</h2>
+<ul>
+<li><p>Static generation.</p>
+</li>
+<li><p>Partials to create reusable fragments. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>Layouts to wrap pages with commonly used elements. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>Pages defined as HTML/templates, JSON or YAML. <!-- .element: class="fragment" --></p>
+</li>
+<li><p>Template data in JSON, YAML, YAML front matter, or passed directly as an object. <!-- .element: class="fragment" --></p>
+</li>
+</ul>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.generator.md"></section>
+    <section><pre><code class="lang-bash"># Install assemble generator
+npm install -g generator-assemble
+
+# Create a dir for the slides
+mkdir assemble; cd assemble;
+
+# Scaffold
+yo assemble
+
+# Start grunt server
+grunt serve
+
+# Build
+grunt build
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.generator.tree.md"></section>
+    <section><h2 id="yo-assemble-generator">Yo assemble generator</h2>
+<pre><code>src/
+├── content
+│   ├── about.md
+│   └── index.md
+├── data
+│   └── site.yml
+└── templates
+    ├── layouts
+    │   ├── minisite.hbs
+    │   └── default.hbs
+    ├── pages
+    │   ├── about.hbs
+    │   ├── blog.hbs
+    │   └── index.hbs
+    └── partials
+        ├── carousel.hbs
+        └── navbar-fixed-top.hbs
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.generator.gruntfilejs.md"></section>
+    <section><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">assemble: {
+    options: {
+        flatten: true,
+        assets: &#39;&lt;%= config.dist %&gt;/assets&#39;,
+        layout: &#39;default.hbs&#39;,
+        layoutdir: &#39;&lt;%= config.src %&gt;/templates/layouts/&#39;,
+        data: &#39;&lt;%= config.src %&gt;/data/*.{json,yml}&#39;,
+        partials: &#39;&lt;%= config.src %&gt;/templates/partials/*.hbs&#39;,
+        plugins: [&#39;assemble-contrib-permalinks&#39;],
+    },
+</code></pre>
+<pre><code class="lang-javascript">    // Targets
+    server: {
+        files: {
+            &#39;.tmp/&#39;: [&#39;&lt;%= config.src %&gt;/templates/pages/**/*.hbs&#39;]
+        }
+    },
+    dist: {
+        files: {
+            &#39;&lt;%= config.dist %&gt;/&#39;: [&#39;src/templates/pages/**/*.hbs&#39;]
+        }
+    }
+},
+</code></pre>
+<!-- .element: class="fragment" -->
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.context.md"></section>
+    <section><h2 id="the-context">The context</h2>
+<p>Data object passed to the templates</p>
+<p>Use the data filename to access properties</p>
+<p><br></p>
+<p>src/data/myTemplate.json</p>
+<pre><code class="lang-json">{
+  &quot;title &quot;: &quot;Heads up!&quot; 
+}
+</code></pre>
+<p>src/templates/pages/myTemplate.html</p>
+<pre><code class="lang-html">&lt;h1 &gt; {{alert.title }} &lt;/h1 &gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.context2.md"></section>
+    <section><h2 id="root-context">Root context</h2>
+<ul>
+<li><p>Is where the data object starts</p>
+</li>
+<li><p>data.{json,yaml} gets loaded into the root of the context</p>
+</li>
+</ul>
+<p><br></p>
+<p>src/data/data.json</p>
+<pre><code class="lang-json">{
+  &quot;title &quot;: &quot;My Title&quot; 
+}
+</code></pre>
+<p>src/templates/pages/myTemplate.hbs</p>
+<pre><code class="lang-html">{{title }}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.context3.md"></section>
+    <section><h2 id="-this-expression">&quot;this&quot; expression</h2>
+<p>This expression in any context to refer to the current context.</p>
+<p>src/data/people.json</p>
+<pre><code class="lang-json">[
+  &quot;Jon Schlinkert&quot;,
+  &quot;Brian Woodward&quot; 
+]
+</code></pre>
+<p>src/templates/pages/people.html</p>
+<pre><code class="lang-html">&lt;ul&gt; 
+  {{#each people }} 
+  &lt;li&gt; {{this }} &lt;/li &gt; 
+  {{/each }} 
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;ul&gt;
+  &lt;li&gt;Jon Schlinkert&lt;/li&gt;
+  &lt;li&gt;Brian Woodward&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.yaml.front.matter.md"></section>
+    <section><h2 id="yaml-front-matter">YAML front matter</h2>
+<p>An optional section of valid YAML that is placed at the top of a page and is used for maintaining metadata for the page and its contents.</p>
+<pre><code class="lang-html">---
+title: YAML Front Matter
+description: A very simple way to add structured data to a page.
+---
+&lt;h1&gt; {{ title }} &lt;/h1&gt;
+&lt;p&gt; {{ description }} &lt;/p&gt;
+Page content here...
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.layouts.md"></section>
+    <section><h1 id="layouts">Layouts</h1>
+<p>Layouts are used for &quot;wrapping&quot; the content of individual pages with common elements</p>
+<pre><code>src/
+└── templates
+    └── layouts
+        ├── sidebar.hbs
+        └── default.hbs
+</code></pre><p>Gruntfile.js</p>
+<pre><code class="lang-javascript">assemble: {
+  options: {
+    layout: &#39;default.hbs&#39;,
+    layoutdir: &#39;&lt;%= config.src %&gt;/templates/layouts/&#39;,
+  },
+  // Targets with parametrized options
+  docs: {
+    options: {layout: &#39;docs-layout.hbs&#39; },
+    files: {&#39;docs/&#39;: [&#39;src/docs/*.hbs&#39; ]},
+  },
+  site: {
+    options: {layout: &#39;site-layout.hbs&#39; },
+    files: {&#39;site/&#39;: [&#39;src/site/*.hbs&#39; ]},
+  }
+}
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.layouts2.md"></section>
+    <section><p>src/template/layouts/default.hbs</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt; 
+&lt;html lang=&quot;en&quot;&gt; 
+  &lt;head&gt; 
+    &lt;meta charset =&quot;UTF-8&quot;&gt;
+    &lt;title&gt; {{title }} &lt;/title&gt; 
+  &lt;/head&gt; 
+  &lt;body&gt; 
+    {{&gt; body  }} 
+  &lt;/body&gt; 
+&lt;/html&gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.layouts.nested.md"></section>
+    <section><h4 id="nested-layouts">Nested layouts</h4>
+<p>src/template/layouts/sidebar.hbs</p>
+<pre><code>---
+layout: default.hbs
+---
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-3&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;
+        ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-9&quot;&gt;
+    {{&gt; body }}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.pages.md"></section>
+    <section><h2 id="pages">Pages</h2>
+<pre><code>src/
+└── templates
+    └── pages
+        ├── about.hbs
+        ├── blog.hbs
+        ├── showcase.hbs
+        └── index.hbs
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.pages2.md"></section>
+    <section><h4 id="pages-collection">Pages collection</h4>
+<p>Pages are automatically available through the pages object.</p>
+<pre><code class="lang-html">&lt;ul&gt;
+  {{#each pages}}
+  &lt;li{{#if this.isCurrentPage}} class=&quot;active&quot;{{/if}}&gt;
+     &lt;a href=&quot;{{relative dest this.dest}}&quot;&gt;{{ data.title }}&lt;/a&gt;
+  &lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.pages3.md"></section>
+    <section><h4 id="markdown-page">Markdown page</h4>
+<p>src/templates/pages/markdown.hbs</p>
+<pre><code>---
+title: Introducción
+---
+
+{{md &#39;src/content/wiki/introduccion.md&#39;}}
+
+{{md &#39;src/content/wiki/sass.md&#39;}}
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.pages4.md"></section>
+    <section><h4 id="advanced-example">Advanced example</h4>
+<p>src/templates/pages/example.hbs</p>
+<pre><code>---
+title: Examples
+description: &quot;One Partial, Many Possibilities&quot;
+
+datos: 
+    class: panel
+    content: Hola que tal!!?
+---
+
+&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  {{&gt; module datos}}
+&lt;/div&gt;
+</code></pre><p>src/templates/partials/module.hbs</p>
+<pre><code>&lt;div class=&quot;{{class}}&quot;&gt;
+  {{#if content}}&lt;h2&gt;{{{content}}}&lt;/h2&gt;{{/if}}  
+&lt;/div&gt;
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.handlebars.helpers.md"></section>
+    <section><h2 id="handlebars">handlebars</h2>
+<p><a href="http://assemble.io/helpers/">http://assemble.io/helpers/</a></p>
+<pre><code class="lang-html">{{#each}}, {{#if}} and {{#unless}}
+
+{{embed &#39;src/code-examples/*.*&#39;}}
+
+{{#eachProperty object}}
+    {{key}} - {{value}}&lt;br/&gt;
+{{/eachProperty }}
+
+&lt;a href=&quot;{{_relative &quot;src&quot; &quot;dist&quot;}}/assets/css/styles.css&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;../../dist/assets/css/styles.css&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.partials.md"></section>
+    <section><h1 id="partials">Partials</h1>
+<p>Reusable fragments</p>
+<pre><code>src/
+└── templates
+    └── partials
+        ├── carousel.hbs
+        ├── modal-window.hbs
+        └── navbar-fixed-top.hbs
+</code></pre><p>Para incrustarlo en algún lugar simplemente escribimos 
+<code>\{{&gt; navbar-fixed-top }}</code></p>
+
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.generator.tree.md"></section>
+    <section><h2 id="yo-assemble-generator">Yo assemble generator</h2>
+<pre><code>src/
+├── content
+│   ├── about.md
+│   └── index.md
+├── data
+│   └── site.yml
+└── templates
+    ├── layouts
+    │   ├── minisite.hbs
+    │   └── default.hbs
+    ├── pages
+    │   ├── about.hbs
+    │   ├── blog.hbs
+    │   └── index.hbs
+    └── partials
+        ├── carousel.hbs
+        └── navbar-fixed-top.hbs
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.content.md"></section>
+    <section><h4 id="content">Content</h4>
+<ul>
+<li>Assemble generator creates a dir for placing the content.</li>
+</ul>
+<pre><code>src/
+└── content
+    │   └── graficas/evolucion.html
+    ├── about.html
+    └── index.md
+</code></pre>
+</section>
 
 
                             
                                 
-    <section data-markdown="slides/assemble.site.md"></section>
+    <section><h4 id="site-global-data">Site global data</h4>
+<p>src/data/site.yaml</p>
+<pre><code class="lang-yaml">title: Generator_tests
+description: Irontec: Internet y Sistemas sobre GNU / LinuX
+ogimage: images/Irontec.png
+keywords: 
+    - irontec
+    - linux
+    - GNU/Linux
+</code></pre>
+<p>src/templates/layouts/default.hbs</p>
+<pre><code class="lang-html">&lt;title&gt;{{title}} | {{site.title}}&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;{{site.description}}&quot;&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;{{site.keywords}}&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;{{site.ogimage}}&quot;/&gt;
+</code></pre>
+
+</section>
 
 
                             
@@ -743,36 +2144,32 @@
         </div>
 
         <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
-        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.js"></script>
         <script>
-            // Configure Reveal
-            // Full list of configuration options available here:
-            // https://github.com/hakimel/reveal.js#configuration
-            Reveal.initialize({
-                controls: true,
-                progress: true,
-                history: true,
-                center: true,
 
-                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+          // Full list of configuration options available at:
+          // https://github.com/hakimel/reveal.js#configuration
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-                // Optional libraries used to extend on reveal.js
-                dependencies: [
-                    { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-                    // { src: 'bower_components/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-                    //{ src: 'bower_components/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-                    { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
-                ]
-            });
+            // Optional reveal.js plugins
+            dependencies: [
+              { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( '[data-html]' ) || !!document.querySelector( 'pre code' ) || !!document.querySelector( '[data-markdown]' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true },
+              { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
+            ]
+          });
+
         </script>
-
     </body>
 
 </html>
